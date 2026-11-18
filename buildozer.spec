@@ -12,7 +12,7 @@ version = 3.2
 
 requirements = python3,kivy==2.3.0,pyjnius
 
-orientation = all
+orientation = portrait+landscape
 fullscreen = 0
 
 android.permissions = INTERNET,RECORD_AUDIO
