@@ -125,7 +125,7 @@ c.conv.push({role:'user',parts:[{text:prompt}]});
 let loading=addMsg('Thinking...','ai');
 try{
 let hist=c.conv.slice(-30);while(hist.length&&hist[0].role!=='user')hist.shift();
-let r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},body:JSON.stringify({contents:hist})});
+let r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},body:JSON.stringify({contents:hist})});
 let j=await r.json();
 let ans=(j.candidates?.[0]?.content?.parts||[]).map(p=>p.text||'').join('');
 if(!ans)throw new Error(j.error?.message||'Empty reply - check Gemini key');
@@ -183,4 +183,4 @@ let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:
 newChat();
 </script>
 </body>
-  </html>
+</html>
